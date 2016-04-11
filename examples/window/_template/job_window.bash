@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -A GEO111
-#PBS -N dsp_synt
+#PBS -N window
 #PBS -j oe
 #PBS -l walltime=NAN
 #PBS -l nodes=NAN
@@ -21,9 +21,8 @@ for event in ${eventlist[@]}
 do
   echo "=============================="
   echo "Event: "$event
-  bash job_dsp_one_event.$idx.bash $event &
+  bash job_window_one_event.bash &
   idx=$(($idx + 1))
-  sleep 10
 done
 wait
 
