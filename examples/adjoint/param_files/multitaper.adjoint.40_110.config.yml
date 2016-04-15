@@ -1,0 +1,48 @@
+# adjoint source type
+adj_src_type: "multitaper_misfit"
+
+# min and max period(unit: second)
+min_period: 40.0
+max_period: 110.0
+
+# adjoint config parameter
+lnpt: 15
+transfunc_waterlevel: 1.0E-10
+ipower_costaper: 10
+min_cycle_in_window: 2.0
+taper_percentage: 0.3
+mt_nw: 2.5
+num_taper: 5
+phase_step: 1.5
+dt_fac: 1.0
+err_fac: 8.00
+dt_max_scale: 5.0
+measure_type: 'dt'
+taper_type: 'cos_p10'
+use_cc_error: True
+use_mt_error: False
+
+---
+interp_flag: True
+# numbers from specfem3D_globe/OUTPUT_FILES/output_mesher.txt
+interp_delta: 0.1615
+# number from synthetic.h5 (timelenght / delta)
+interp_npts: 69972
+
+# for sum multiple insturments, like "II.AAK.00.BHZ" and "II.AAK.10.BHZ". if you turn
+# the weight_flag to be true, then you need also provide the weight_dict in the code
+sum_over_comp_flag: True
+weight_flag: False
+
+# filter the adjoint source
+filter_flag: True
+pre_filt: [0.0073, 0.0091, 0.025, 0.03]
+
+# add missing components with zero trace(to prepare rotate)
+# If set to False, only rotate those with Both "R" and "T"
+# components. Set to True highly recommended unless you are
+# sreu what you are doing
+add_missing_comp_flag: False
+
+# rotate the adjoint source
+rotate_flag: False

@@ -1,0 +1,35 @@
+# event list file. A list of event names
+eventlist: "cmtlist.origin"
+
+# job running mode
+# 1) serial; 2) simultaneous
+# If 'serial', all events will run one after one;
+# If 'simultaneous', events will run simultaneous
+job_mode: "serial"
+# number of events per job
+nevents_per_job: 51
+
+# job template dir
+job_template_dir: "./_template"
+
+# the running time for one event, in minutes
+job_running_time: 45
+# number of nodes used for one event. The total number of
+# nodes in one job will be caluclated using:
+# nnodes = nnodes_per_event * nevents_per_job
+nnodes_per_event: 2
+# Number of processors on one node. On Rhea, the number is 16
+nprocs_per_node: 16
+
+# param file dir. The code will search for corresponding param
+# files in the paradir according to taglist
+paramdir: "./param_files"
+# path file dir. The code will search for corresponding path
+# files in the parthdir according to eventlist and taglist
+pathdir: "./path_files/output_json"
+
+# period tag list. Used in searching for param and path files
+taglist: ["17_38", "30_56", "92_250"]
+
+# outputdir for everything
+outputdir: "adjoint_serial"
